@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import MyNavbar from './components/MyNavbar';
+import AccountSelector from './components/AccountSelector';
+import FriendsOf from './components/FriendsOf';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  render() {
+    return (
+      <div className="App-Main">
+        <Router>
+          <MyNavbar />
+          {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+          <Switch>
+            <Route path="/friendsof">
+              <FriendsOf />
+            </Route>
+            {/* <Route path="/somepath">
+              <SomeComponent />
+            </Route> */}
+            <Route path="/">
+              <AccountSelector />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
