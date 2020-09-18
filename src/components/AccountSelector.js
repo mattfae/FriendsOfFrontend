@@ -10,23 +10,17 @@ class AccountSelector extends Component {
 
     constructor() {
         super();
-        this.state = {value: ''};
+        this.state = {username: ''};
       }
 
     handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.history.push('/friendsof');
-        console.log(this.state.value);
+      this.setState({username: event.target.value});
     }
 
     render() {
         return (
             <Container className="fluid justify-content-center">
-                <Form id="newaccountform" className="justify-self-center" onSubmit={(e) => this.handleSubmit(e)}>
+                <Form id="newaccountform" className="justify-self-center" onSubmit={(e) => this.props.handleSubmit(e, this.state.username)}>
                     <Form.Group controlId="formUsername">
                         <Form.Label>Enter a Twitter Handle</Form.Label>
                         <Form.Control className="col-4" type="username" placeholder="@username" value={this.state.value} onChange={(e) => this.handleChange(e)}/>

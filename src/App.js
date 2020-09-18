@@ -9,7 +9,46 @@ import FriendsOf from './components/FriendsOf';
 
 class App extends Component {
 
+  constructor() {
+    super()
+    this.state = {
+      username: '',
+      successfulPOST: false
+    }
+  }
+
+
+  handleSubmit = (event, inputName) => {
+    event.preventDefault();
+    const reqObj = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              "username": inputName
+              })
+            }
+    fetch('http://localhost:3000/twitter_accounts', reqObj)
+    .then(resp => resp.json())
+    .then(resp => {
+        console.log(resp)
+        this.setState({
+          username: inputName,
+          successfulPOST: true
+        })
+      });
+  }
+
+
   render() {
+
+    if (this.state.successfulPOST === true)
+
+        return <FriendsOf username={this.state.username} />
+
+    else
+
     return (
       <div className="App-Main">
         <Router>
@@ -18,13 +57,13 @@ class App extends Component {
               renders the first one that matches the current URL. */}
           <Switch>
             <Route path="/friendsof">
-              <FriendsOf />
+              <FriendsOf username={this.state.username} />
             </Route>
-            {/* <Route path="/somepath">
+            {/* <Route path="/">
               <SomeComponent />
             </Route> */}
             <Route path="/">
-              <AccountSelector />
+              <AccountSelector handleSubmit={this.handleSubmit} />
             </Route>
           </Switch>
         </Router>

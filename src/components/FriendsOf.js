@@ -4,9 +4,17 @@ import { Component } from 'react';
 
 class FriendsOf extends Component {
 
+    componentDidMount() {
+        console.log("FriendsOf render", this.props)
+    }
+
     render() {
         return (
-            <h1>Heya</h1>
+            <div>
+            <h1>Hmm</h1>
+            <h2>{this.props.username}</h2>
+            <h3>k.</h3>
+            </div>
         )
     }
 }

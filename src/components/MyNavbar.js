@@ -7,7 +7,7 @@ class MyNavbar extends Component {
     render() {
         return (
                 <Navbar bg="light" className='fluid'>
-                  <Navbar.Brand className="h1" href="http://localhost:3000">Friends Of</Navbar.Brand>
+                  <Navbar.Brand className="h1" href="http://localhost:3000/">Friends Of</Navbar.Brand>
                 </Navbar>
         );
     }
