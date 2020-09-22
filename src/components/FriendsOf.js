@@ -11,6 +11,7 @@ class FriendsOf extends Component {
     render() {
         return (
             <div>
+                <Navbar />
             <h1>Hmm</h1>
             <h2>{this.props.username}</h2>
             <h3>k.</h3>

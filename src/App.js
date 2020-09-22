@@ -1,6 +1,5 @@
 import React from 'react';
 import { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import MyNavbar from './components/MyNavbar';
 import AccountSelector from './components/AccountSelector';
@@ -42,33 +41,20 @@ class App extends Component {
 
 
   render() {
-
     if (this.state.successfulPOST === true)
-
-        return <FriendsOf username={this.state.username} />
-
+        return (
+          <div>
+          <MyNavbar username={this.state.username} />
+          <FriendsOf username={this.state.username} />
+          </div>
+        );
     else
-
-    return (
-      <div className="App-Main">
-        <Router>
-          <MyNavbar />
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/friendsof">
-              <FriendsOf username={this.state.username} />
-            </Route>
-            {/* <Route path="/">
-              <SomeComponent />
-            </Route> */}
-            <Route path="/">
-              <AccountSelector handleSubmit={this.handleSubmit} />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
-    );
+        return (
+          <div className="App-Main">
+            <MyNavbar />
+            <AccountSelector handleSubmit={this.handleSubmit} />
+          </div>
+        );
   }
 }
 
