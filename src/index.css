@@ -2,6 +2,7 @@ html, body, div#root, div.App-Main {
   height: 100%;
   width: 100%;
   margin: 0px;
+  background-color: #cbdee9;
 }
 
 body {
@@ -11,7 +12,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #154052;
+}
+
+.form-label, .btn {
+  color: #1b545e
 }
 
 #newaccountform {

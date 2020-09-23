@@ -19,10 +19,10 @@ class AccountSelector extends Component {
     render() {
         return (
             <Container className="fluid justify-content-center">
-                <Form id="newaccountform" className="justify-self-center" onSubmit={(e) => this.props.handleSubmit(e, this.state.username)}>
+                <Form id="newaccountform" bg="dark" className="justify-self-center" onSubmit={(e) => this.props.handleSubmit(e, this.state.username)}>
                     <Form.Group controlId="formUsername">
                         <Form.Label>Enter a Twitter Handle</Form.Label>
-                        <Form.Control className="col-4" type="username" placeholder="@username" value={this.state.value} onChange={(e) => this.handleChange(e)}/>
+                        <Form.Control className="col-4" bg="dark" type="username" placeholder="@username" value={this.state.value} onChange={(e) => this.handleChange(e)}/>
                     </Form.Group>
                     <Button variant="outline-info" type="submit" >Submit</Button>
                 </Form>

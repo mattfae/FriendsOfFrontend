@@ -31,10 +31,11 @@ class App extends Component {
     fetch('http://localhost:3000/twitter_accounts', reqObj)
     .then(resp => resp.json())
     .then(resp => {
-        console.log(resp)
+      console.log(resp)
         this.setState({
           username: inputName,
-          successfulPOST: true
+          successfulPOST: true,
+          twitterId: resp.twitter_account_id
         })
       });
   }
@@ -45,7 +46,7 @@ class App extends Component {
         return (
           <div>
           <MyNavbar username={this.state.username} />
-          <FriendsOf username={this.state.username} />
+          <FriendsOf username={this.state.username} twitterId={this.state.twitterId} />
           </div>
         );
     else
