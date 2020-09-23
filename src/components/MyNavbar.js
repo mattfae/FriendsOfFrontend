@@ -1,31 +1,32 @@
 import React from 'react';
 import { Component } from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
 
 class MyNavbar extends Component {
 
-    render() {
+      constructor(props) {
+        super()
+      }
 
-      if (this.props.username === true)
+      render() {
+
         return (
-          <Navbar bg="light" className='fluid'>
-          <Navbar.Brand className="h1" href="http://localhost:3000/">Friends Of</Navbar.Brand>
-           <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-           <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-           <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-           <NavDropdown.Divider />
-           <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-           </NavDropdown>
+          <Navbar bg="dark" variant="dark" className='fluid'>
+          <Navbar.Brand href="http://localhost:3000/">Friends Of</Navbar.Brand>
+          {this.props.username &&
+          <Nav>
+            <Navbar.Text>
+              now exploring:
+            </Navbar.Text>
+            <Nav.Link href={`www.twitter.com/${this.props.username}`} >{this.props.username}</Nav.Link>
+              <NavDropdown title="Views" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">Friends Of</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">Networked Followers</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">Something Else</NavDropdown.Item>
+              </NavDropdown>
+          </Nav>
+          }
           </Navbar>
-        )
-
-      else
-        return (
-            <Navbar bg="light" className='fluid'>
-              <Navbar.Brand className="h1" href="http://localhost:3000/">Friends Of</Navbar.Brand>
-            </Navbar>
         );
     } 
 } 

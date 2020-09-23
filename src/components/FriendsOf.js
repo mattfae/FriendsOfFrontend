@@ -5,13 +5,12 @@ import { Component } from 'react';
 class FriendsOf extends Component {
 
     componentDidMount() {
-        console.log("FriendsOf render", this.props)
+        console.log("idk")
     }
 
     render() {
         return (
             <div>
-                <Navbar />
             <h1>Hmm</h1>
             <h2>{this.props.username}</h2>
             <h3>k.</h3>
