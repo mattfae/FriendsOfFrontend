@@ -5,44 +5,46 @@ import FriendPair from './FriendPair';
 
 class FriendsOf extends Component {
 
-    componentDidMount() {
-        console.log("friendsof props:", this.props.friendsOf)
+    constructor() {
+        super()
+        this.state = {
+            friendPairs: null
+        }
+    }
 
-        fetch(`http://localhost:3000/friendship_analyses/${this.props.twitterId}`)
+    componentDidMount() {
+
+        fetch(`http://localhost:3000/friendship_analyses/${this.props.instanceId}`)
         .then(resp => resp.json())
         .then(resp => {
-          console.log(resp)
-            // this.setState({
-            //   username: inputName,
-            //   successfulPOST: true,
-            //   twitterId: resp.twitter_account_id
-            // })
-          });
+            this.setState({friendPairs: resp})
+        });
     }
 
     renderFriendsOf() {
-        const allFriendsOf = []
-        
-        // const someFriendsOf = allFriendsOf.map(friendId => (
-        //     <FriendPair pair={friendId}/>
-        // ));
-
-        return (
-            <div className="eachFriend">
-                {allFriendsOf}
-            </div>
-        )
-    }
-
-
-    render() {
+        const allFriendsOf = this.state.friendPairs.map((rel, index) => (
+            <FriendPair rel={rel} key={index} />
+        ));
 
         return (
             <div>
             <h1>Friends Of Friends of {this.props.username}</h1>
             <Accordion defaultActiveKey="0">
-                {this.renderFriendsOf()}
-            </Accordion>    
+            {allFriendsOf}
+            </Accordion>
+            </div>
+        );
+    }
+
+    render() {
+
+        return (
+            <div>
+                {this.state.friendPairs === null
+                ?
+                <h1>{console.log("loading", this.state)}Loading...</h1>
+                :
+                <h1>{console.log("done", this.state)}{this.renderFriendsOf()}</h1>}
             </div>
         )
     }

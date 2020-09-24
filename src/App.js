@@ -35,7 +35,7 @@ class App extends Component {
         this.setState({
           username: inputName,
           successfulPOST: true,
-          twitterId: resp.twitter_account_id
+          instanceId: resp.id
         })
       });
   }
@@ -46,7 +46,7 @@ class App extends Component {
         return (
           <div>
           <MyNavbar username={this.state.username} />
-          <FriendsOf username={this.state.username} twitterId={this.state.twitterId} />
+          <FriendsOf username={this.state.username} instanceId={this.state.instanceId} />
           </div>
         );
     else
