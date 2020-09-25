@@ -31,7 +31,6 @@ class App extends Component {
     fetch('http://localhost:3000/twitter_accounts', reqObj)
     .then(resp => resp.json())
     .then(resp => {
-      console.log(resp)
         this.setState({
           username: inputName,
           successfulPOST: true,
