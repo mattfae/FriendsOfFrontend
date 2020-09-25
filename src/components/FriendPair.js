@@ -6,10 +6,15 @@ const FriendPair = props => {
   return (
         <Card>
           <Accordion.Toggle as={Card.Header} eventKey={props.indexk}>
-            {props.rel}
+            {props.rel[0]}
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={props.indexk}>
-            <Card.Body>Hello! I'm the body</Card.Body>
+            <Card.Body>
+              Friends with:
+              {props.rel[1].map(friend => (
+                friend
+              ));}
+            </Card.Body>
           </Accordion.Collapse>
         </Card>
   )
