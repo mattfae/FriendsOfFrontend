@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import { Accordion } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 import FriendPair from './FriendPair';
 
 class FriendsOf extends Component {
@@ -17,6 +17,7 @@ class FriendsOf extends Component {
         fetch(`http://localhost:3000/friendship_analyses/${this.props.instanceId}`)
         .then(resp => resp.json())
         .then(resp => {
+            console.log("setting state")
             this.setState({friendPairs: resp})
         });
     }
@@ -28,10 +29,11 @@ class FriendsOf extends Component {
 
         return (
             <div>
+            {console.log("rendering Friends in FriendsOf, props:", this.props)}
             <h1>Friends Of Friends of {this.props.username}</h1>
-            <Accordion defaultActiveKey="0">
+            <ListGroup>
             {allFriendsOf}
-            </Accordion>
+            </ListGroup>
             </div>
         );
     }
@@ -42,9 +44,9 @@ class FriendsOf extends Component {
             <div>
                 {this.state.friendPairs === null
                 ?
-                <h1>{console.log("loading", this.state)}Loading...</h1>
+                <h1>{console.log("loading FriendsOf", this.state)}Loading...</h1>
                 :
-                <h1>{console.log("done", this.state)}{this.renderFriendsOf()}</h1>}
+                <h1>{console.log("loaded FriendsOf", this.state)}{this.renderFriendsOf()}</h1>}
             </div>
         )
     }
