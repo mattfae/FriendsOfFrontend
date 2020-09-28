@@ -20,6 +20,7 @@ const FriendPair = props => {
         //     </Card.Body>
         //   </Accordion.Collapse>
         // </Card>
+        
   )
 }
 
