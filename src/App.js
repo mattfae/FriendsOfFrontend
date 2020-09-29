@@ -12,7 +12,8 @@ class App extends Component {
     super()
     this.state = {
       username: '',
-      successfulPOST: false
+      successfulPOST: false,
+      friendPairs: null
     }
   }
 
@@ -30,13 +31,18 @@ class App extends Component {
             }
     fetch('http://localhost:3000/twitter_accounts', reqObj)
     .then(resp => resp.json())
-    .then(resp => {
-        this.setState({
-          username: inputName,
-          successfulPOST: true,
-          instanceId: resp.id
-        })
-      });
+    .then(acctResp => {
+      fetch(`http://localhost:3000/friendship_analyses/${acctResp.id}`)
+        .then(resp => resp.json())
+        .then(frResp => {
+          console.log(frResp)
+          this.setState({
+            username: inputName,
+            successfulPOST: true,
+            friendPairs: frResp
+              })
+            });
+        });
   }
 
 
@@ -45,7 +51,7 @@ class App extends Component {
         return (
           <div>
           <MyNavbar username={this.state.username} />
-          <FriendsOf username={this.state.username} instanceId={this.state.instanceId} />
+          <FriendsOf username={this.state.username} friendPairs={this.state.friendPairs} />
           </div>
         );
     else
