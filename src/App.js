@@ -17,7 +17,6 @@ class App extends Component {
     }
   }
 
-
   handleSubmit = (event, inputName) => {
     event.preventDefault();
     const reqObj = {
