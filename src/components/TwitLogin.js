@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
-import twitLogin from '../assets/twit.png';
 
 class TwitLogin extends Component {
 
-    handleLogin() {
-        console.log('clicked');
+    constructor() {
+       super()
+       this.state = { data: [] }
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3000/auth/twitter', { headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+        })
+        .then(resp => resp.json())
+        .then(resp => {
+            console.log(resp);
+        });
     }
 
     render() {
         return (
-            <div className="container d-flex h-100 justify-content-center">
-                <div className="my-auto">
-                <input type="image" src={twitLogin} alt="Twitter Login" onClick={() => this.handleLogin()} />
-                </div>
+            <div>
+                <h1>test.</h1>
             </div>
         );
     }

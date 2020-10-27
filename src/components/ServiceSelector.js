@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import twitLogin from '../assets/twit.png';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -68,9 +67,8 @@ class ServiceSelector extends Component {
                                     </Form.Group>
                                     <Button variant="outline-info" type="submit" >Submit</Button>
                                 </Form>
-
                             </div>
-                            <p>*note: Twitter API's rate limiting has mostly killed this feature.</p>
+                            <p>*note: free API rate limiting makes this demo only.</p>
                         </div>
                     </div>
 
@@ -78,9 +76,9 @@ class ServiceSelector extends Component {
                         <div className="card w-50 mt-5">
                             <h5 className="card-header">Second Degree</h5>
                               <div className="card-body">
-                                <p className="card-text">Sign in with Twitter and enter an account to see if anyone followed by that account is following you.</p>
-                                <Link to="/auth/twitter">
-                                    <img src={twitLogin} alt="Twitter Login" />
+                                <p className="card-text">Enter two twitter accounts to see which accounts followed by the first themselves follow the second.</p>
+                                <Link to="/seconddegree">
+                                    Select Accounts
                                 </Link>
                             </div>
                         </div>

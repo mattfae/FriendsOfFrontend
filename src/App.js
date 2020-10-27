@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import ServiceSelector from './components/ServiceSelector';
-import TwitLogin from './components/TwitLogin';
+import SecondDegree from './components/SecondDegree';
 import MyNavbar from './components/MyNavbar';
 import AccountSelector from './components/AccountSelector';
 
@@ -19,7 +19,7 @@ class App extends Component {
 
               <Route exact path="/" component={ServiceSelector} />
               <Route path="/friendsof" component={AccountSelector} />
-              <Route path="/seconddegree" component={TwitLogin} />
+              <Route path="/seconddegree" component={SecondDegree} />
 
             </Switch>
 
