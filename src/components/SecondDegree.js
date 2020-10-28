@@ -38,12 +38,10 @@ class SecondDegree extends Component {
     }
 
     targetChange(event) {
-        console.log(event.target.value)
         this.setState({targetUsername: event.target.value});
     }
 
     subjectChange(event) {
-        console.log(event.target.value)
         this.setState({subjectUsername: event.target.value});
     }
 
@@ -55,7 +53,7 @@ class SecondDegree extends Component {
                     <div className="col-4"></div>
 
                     <div className="col-4">
-                        <h2>Mutual Connections</h2>
+                        <h2>Second Degree Connections</h2>
                         <Form id="newaccountform" className="mt-4 p-2" onSubmit={(e) => this.handleSubmit(e, this.state.targetUsername, this.state.subjectUsername)}>
                             <Form.Group controlId="formUsername">
                                 <Form.Label>Look at who this person follows...</Form.Label>
