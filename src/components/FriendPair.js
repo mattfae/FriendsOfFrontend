@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 
-const FriendPair = props => {
+const FriendPair = (props) => {
 
   return (
     <ListGroup.Item>
