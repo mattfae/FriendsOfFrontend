@@ -23,7 +23,7 @@ class SDResults extends Component {
     render() {
         return (
             <div>
-                <div><h1>Accounts followed by {this.props.targetUsername} who follow {this.props.subjectUsername}</h1></div>
+                <div><h5>Accounts followed by {this.props.targetUsername} who follow {this.props.subjectUsername}</h5></div>
                 <div>
                     {this.renderSecondDegrees()}
                 </div>

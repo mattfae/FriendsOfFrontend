@@ -27,10 +27,10 @@ class AccountSelector extends Component {
                 "username": inputName
                 })
               }
-      fetch('http://localhost:3000/twitter_accounts', reqObj)
+      fetch('https://friends-of-app-api.herokuapp.com/twitter_accounts', reqObj)
       .then(resp => resp.json())
       .then(acctResp => {
-        fetch(`http://localhost:3000/friendship_analyses/${acctResp.id}`)
+        fetch(`https://friends-of-app-api.herokuapp.com/friendship_analyses/${acctResp.id}`)
           .then(resp => resp.json())
           .then(frResp => {
             console.log(frResp)

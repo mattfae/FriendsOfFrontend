@@ -12,7 +12,7 @@ class MyNavbar extends Component {
 
         return (
           <Navbar bg="dark" variant="dark" className='fluid'>
-          <Navbar.Brand href="http://localhost:3000/">Twitter Network</Navbar.Brand>
+          <Navbar.Brand href="https://friends-of-app-api.herokuapp.com/">Twitter Network</Navbar.Brand>
           {this.props.username &&
           <Nav>
             <Navbar.Text>

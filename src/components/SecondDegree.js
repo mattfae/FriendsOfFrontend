@@ -32,7 +32,7 @@ class SecondDegree extends Component {
                         }
                     })
                 }
-        fetch('http://localhost:3000/second_degrees', reqObj)
+        fetch('https://friends-of-app-api.herokuapp.com/second_degrees', reqObj)
         .then(resp => resp.json())
         .then(resp => {
             this.setState({loading: false, successfulPOST: true, respData: resp})
