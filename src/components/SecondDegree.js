@@ -35,7 +35,6 @@ class SecondDegree extends Component {
         fetch('http://localhost:3000/second_degrees', reqObj)
         .then(resp => resp.json())
         .then(resp => {
-            console.log(resp)
             this.setState({loading: false, successfulPOST: true, respData: resp})
             });
     }
